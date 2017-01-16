@@ -7,4 +7,6 @@
  */
 return [
     'system' => 'Landing page system',
+
+    'startSys' =>'Get started with Yii',
 ];

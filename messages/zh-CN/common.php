@@ -59,4 +59,5 @@ return [
     //系统设置
     'workSpace' => '工作空间',
     'workNow' => '当前工作目录',
+    'startSys' => '开始落地页系统'
 ];
