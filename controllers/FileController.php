@@ -29,9 +29,10 @@ class FileController extends BaseController
              $model->copyDirs();
             Yii::$app->getSession()->setFlash('success', Yii::t('common', 'copySuccess'));
         }
-
+        $cache = Yii::$app->cache;
+        $model -> oldpath = $cache->get('nowpath');
         return $this->render('index',[
-            'model' => $model
+            'model' => $model,
         ]);
     }
 
@@ -48,8 +49,10 @@ class FileController extends BaseController
             Yii::$app->getSession()->setFlash('success', Yii::t('common', 'copyFlies'));
         }
 
+        $cache = Yii::$app->cache;
+        $model -> oldpath = $cache->get('nowpath');
         return $this->render('copyDir',[
-            'model' => $model
+            'model' => $model,
         ]);
     }
 
@@ -66,8 +69,10 @@ class FileController extends BaseController
             Yii::$app->getSession()->setFlash('success', Yii::t('common', 'copySuccess'));
         }
 
+        $cache = Yii::$app->cache;
+        $model -> oldfile = $cache->get('nowpath');
         return $this->render('copyFiles',[
-            'model' => $model
+            'model' => $model,
         ]);
     }
 
@@ -84,8 +89,10 @@ class FileController extends BaseController
             Yii::$app->getSession()->setFlash('success', Yii::t('common', 'copyFlies'));
         }
 
+        $cache = Yii::$app->cache;
+        $model -> oldfile = $cache->get('nowpath');
         return $this->render('copyFile',[
-            'model' => $model
+            'model' => $model,
         ]);
     }
 }
