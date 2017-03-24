@@ -48,8 +48,14 @@ class SiteAction extends Model
     {
         if ($this->validate()) {
             $cache = Yii::$app->cache;
-            $cache->add('workspace',$this->workspace);
-            $cache->add('nowpath',$this->nowpath);
+
+            if($cache->exists('workspace')&&$cache->exists('nowpath')){
+                $cache->set('workspace',$this->workspace);
+                $cache->set('nowpath',$this->nowpath);
+            }else{
+                $cache->add('workspace',$this->workspace);
+                $cache->add('nowpath',$this->nowpath);
+            }
             Yii::$app->session['workspace']=$this->workspace;
             return true;
         }

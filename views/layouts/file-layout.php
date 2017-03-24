@@ -37,9 +37,14 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-left'],
         'items' => [
-            ['label' => Yii::t('common','Home'), 'url' => ['/site/index']],
-            ['label' => Yii::t('common','actionFile'), 'url' => ['/file/index']],
             ['label' => Yii::t('common','sysSet'), 'url' => ['/site/index']],
+            ['label' => Yii::t('common','actionFile'), 'url' => ['/file/index']],
+            ['label' => Yii::t('common','edit'), 'url' => ['/edit/index'],
+                'linkOptions' => [
+                    'target'=>'blank'
+                ]
+            ],
+            ['label' => Yii::t('common','autoDo'), 'url' => ['/auto/index']],
             ['label' => Yii::t('common','About'), 'url' => ['/site/about']],
             '<li>'.Html::a(Yii::t('common','logout'),Url::to(['site/logout']),[
                 'data-method'=>"post"

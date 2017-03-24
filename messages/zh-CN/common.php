@@ -10,7 +10,9 @@ return [
     'Home'   => '首页',
     'About'  => '关于',
     'actionFile'=> '文件操作',
+    'edit' => '编辑器',
     'sysSet' => '系统设置',
+    'autoDo' => '落地页自动化',
     'logout' =>'退出',
     'author' =>'代号黑鹰',
     'authorInfo' =>'913992589@qq.com 本系统可开源学习，但不免费商用用途，商用请联系授权。',
@@ -38,10 +40,13 @@ return [
     'newfile' => '保存文件路径',
     'num'    =>'复制数量',
     'start'    =>'命名开始编号',
+    'ldyPath' => '落地页地址',
+    'ldyMuDi' => '制作地址',
 
     //按钮
     'copy' => '复制',
     'site' => '设置',
+    'startDo' => '开始制作',
 
     //系统设置
     'workspace' => '工作空间',
