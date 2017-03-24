@@ -50,6 +50,7 @@ class SiteAction extends Model
             $cache = Yii::$app->cache;
             $cache->add('workspace',$this->workspace);
             $cache->add('nowpath',$this->nowpath);
+            Yii::$app->session['workspace']=$this->workspace;
             return true;
         }
         return false;
