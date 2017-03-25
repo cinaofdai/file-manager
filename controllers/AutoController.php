@@ -17,8 +17,11 @@ class AutoController extends BaseController
 {
         public function actionIndex(){
             $model = new AutoModel();
-            if($model->load(Yii::$app->request->post())&&$model->autoDo()){
-               echo 'sdd';die;
+            if($model->load(Yii::$app->request->post())){
+                $editHtml = $model->autoDo();
+                return $this->render('edit',[
+                    'edit'=>$editHtml,
+                ]);
             }
 
             $cache = Yii::$app->cache;
@@ -27,5 +30,14 @@ class AutoController extends BaseController
                 'model'=>$model,
                 'tree'=> $model->getGoalDir(),
             ]);
+        }
+
+
+        public function actionEdit(){
+            $cache = Yii::$app->cache;
+            $tempHtml = $cache->get('tempHtml');
+            $path = Yii::$app->request->get('path');
+            Yii::$app->session['workspace']=$tempHtml[$path];
+            echo 200;
         }
 }

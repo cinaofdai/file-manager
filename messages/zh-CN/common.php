@@ -13,6 +13,7 @@ return [
     'edit' => '编辑器',
     'sysSet' => '系统设置',
     'autoDo' => '落地页自动化',
+    'autoEdit' => '落地页后续编辑',
     'logout' =>'退出',
     'author' =>'代号黑鹰',
     'authorInfo' =>'913992589@qq.com 本系统可开源学习，但不免费商用用途，商用请联系授权。',

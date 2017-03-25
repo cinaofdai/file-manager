@@ -69,7 +69,7 @@ class ChinesePinyin{
 	public function TransformUcwords($input_char,$delimiter=''){
 		
 		$char_without_tone = ucwords($this->TransformWithoutTone($input_char,' ',false));
-		$ucwords = preg_replace('/[^A-Z]/','',$char_without_tone);
+		$ucwords = preg_replace('/[^(A-Z)|(0-9)]/','',$char_without_tone);
 		if(!empty($delimiter)){
 			$ucwords = implode($delimiter,str_split($ucwords));
 		}
