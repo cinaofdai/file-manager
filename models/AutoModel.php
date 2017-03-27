@@ -195,7 +195,7 @@ class AutoModel extends Model
                     self::recurse_copy($path,$des.DIRECTORY_SEPARATOR.$file);
                 }  else  {
                     $pathinfo = pathinfo($path);
-                    if($pathinfo['filename']=='index') continue;
+                    if($pathinfo['filename']=='index'&&$pathinfo['extension']!='swf') continue;
                     copy(iconv('utf-8','gbk',$path),$des.DIRECTORY_SEPARATOR.$file);
                 }
             }
