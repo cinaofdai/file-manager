@@ -86,7 +86,7 @@ class AutoModel extends Model
             $new  =$this->ldyMuDi.DIRECTORY_SEPARATOR.$filename;
             $this->recurse_copy($old,$new);
             //复制完成添加index页面
-            $indexHtml = $this->ldyMuDi.DIRECTORY_SEPARATOR.$game.'-g1'.DIRECTORY_SEPARATOR.'index.html';
+            $indexHtml = $this->getLastHtml($this->ldyMuDi,$game).DIRECTORY_SEPARATOR.'index.html';
             $newHtml = $new.DIRECTORY_SEPARATOR.'index.html';
             copy($indexHtml,$newHtml);
             $editHtml[$filename]= $newHtml;
@@ -97,6 +97,23 @@ class AutoModel extends Model
         return $editHtml;
     }
 
+    /**
+     * 得到最后一个落地页名称
+     */
+    private function getLastHtml($path,$game){
+        $tmp = $this->scanMyDir( $path);
+        $name = $game;
+        $count = 1;
+        foreach ( $tmp as $k=>$v ) {
+            //过滤掉上级目录,本级目录和程序自身文件名
+            $filegame = explode('-g',$v);
+            if ( $filegame[0]==$game ) {
+                $count = ($filegame[1]>$count)?$filegame[1]:$count;
+            }
+        }
+        $filename = $name.'-g'.($count-1);
+        return $path.DIRECTORY_SEPARATOR.$filename;
+    }
     /**
      * 获取游戏目录地址
      * @param $path
